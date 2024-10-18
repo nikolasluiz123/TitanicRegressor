@@ -34,5 +34,41 @@
         "feature_selection_time": "00:00:27",
         "search_time": "00:02:24",
         "validation_time": "00:18:56"
+    },
+    {
+        "mean": -0.14530974663271712,
+        "standard_deviation": 0.023123749159739148,
+        "median": -0.14676711879769144,
+        "variance": 0.000534707775202537,
+        "standard_error": 0.010341255003166076,
+        "min_max_score": [
+            -0.1847494630576005,
+            -0.12110105047737701
+        ],
+        "estimator_params": {
+            "bootstrap": true,
+            "ccp_alpha": 0.0,
+            "criterion": "poisson",
+            "max_depth": 10,
+            "max_features": null,
+            "max_leaf_nodes": null,
+            "max_samples": null,
+            "min_impurity_decrease": 0.0,
+            "min_samples_leaf": 7,
+            "min_samples_split": 13,
+            "min_weight_fraction_leaf": 0.10886265176649741,
+            "monotonic_cst": null,
+            "n_estimators": 35,
+            "n_jobs": null,
+            "oob_score": false,
+            "random_state": null,
+            "verbose": 0,
+            "warm_start": false
+        },
+        "scoring": "neg_mean_squared_error",
+        "features": "classe_social, idade, qtd_irmaos_conjuges, qtd_pais_filhos, valor_ticket, sexo_female, sexo_male, cabine_A23, cabine_A26, cabine_A31, cabine_B41, cabine_C104, cabine_C22 C26, cabine_C49, cabine_D56, cabine_E10, cabine_E77, cabine_G6",
+        "feature_selection_time": "00:00:50",
+        "search_time": "00:01:19",
+        "validation_time": "00:05:49"
     }
 ]

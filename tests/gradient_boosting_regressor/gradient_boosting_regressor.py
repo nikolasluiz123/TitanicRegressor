@@ -28,7 +28,7 @@ y = df_train['sobreviveu']
 search_params = {
     'loss': ['squared_error', 'absolute_error', 'huber', 'quantile'],
     'learning_rate': uniform(loc=0.01, scale=0.99),
-    'n_estimators': randint(100, 2000),
+    'n_estimators': randint(100, 300),
     'subsample': uniform(loc=0.1, scale=0.9),
     'criterion': ['friedman_mse', 'squared_error'],
     'min_samples_split': randint(2, 20),
@@ -57,4 +57,4 @@ process_manager = ProcessManager(
     save_history=True,
 )
 
-process_manager.process(number_interations=100)
+process_manager.process(number_interations=1000)
