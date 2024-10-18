@@ -4,30 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cff482e-a2fb-450d-9eac-36ee01549166" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/TitanicRegressor.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/data_exploration.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/data_processing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/gender_submission.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/test.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/train.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hiper_params_search/random_searcher.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hiper_params_search/searcher.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manager/history_manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manager/process_manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model_validator/cross_validator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model_validator/result.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model_validator/validator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/regression_vars_search/features_searcher.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/regression_vars_search/recursive_feature_searcher.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/decision_tree_regressor/decision_tree_regressor.py" afterDir="false" />
+    <list default="true" id="3cff482e-a2fb-450d-9eac-36ee01549166" name="Changes" comment="feat: implementação com DecisionTreeRegressor">
+      <change afterPath="$PROJECT_DIR$/regression_vars_search/k_best_feature_searcher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/elastic_net/elastic_net.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/gradient_boosting_regressor/gradient_boosting_regressor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/random_forest_regressor/random_forest_regressor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/sgd_regressor/sgd_regressor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/theil_sen_regressor/theil_sen_regressor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/regression_vars_search/features_searcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/regression_vars_search/features_searcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/regression_vars_search/recursive_feature_searcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/regression_vars_search/recursive_feature_searcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/decision_tree_regressor/decision_tree_regressor.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/decision_tree_regressor/decision_tree_regressor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,11 +31,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;nikolasluiz123&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/nikolasluiz123/TitanicRegressor.git&quot;,
+    &quot;accountId&quot;: &quot;8f357b9b-1e31-4377-a311-fc17514eada0&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2nRmUtM7sBe0OFMPqLetM98GbaJ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -60,24 +61,36 @@
     "Python.decision_tree_regressor_k_best_test.executor": "Run",
     "Python.decision_tree_regressor_rfe_cv_test.executor": "Run",
     "Python.decision_tree_regressor_test.executor": "Run",
+    "Python.elastic_net.executor": "Run",
+    "Python.gradient_boosting_regressor.executor": "Run",
+    "Python.k_neighbors_regressor.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.random_forest_regressor.executor": "Run",
+    "Python.sgd_regressor.executor": "Run",
+    "Python.theil_sen_regressor.executor": "Run",
+    "Python.tweedie_regressor.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/nikol/git/IA/TitanicRegressor/tests/decision_tree_regressor"
+    "last_opened_file_path": "C:/Users/nikol/git/IA/TitanicRegressor/regression_vars_search"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\nikol\git\IA\TitanicRegressor\tests\decision_tree_regressor" />
       <recent name="C:\Users\nikol\git\IA\TitanicRegressor\regression_vars_search" />
-      <recent name="C:\Users\nikol\git\IA\TitanicRegressor\data" />
-      <recent name="C:\Users\nikol\git\IA\TitanicRegressor\model_validator" />
-      <recent name="C:\Users\nikol\git\IA\TitanicRegressor\manager" />
+      <recent name="C:\Users\nikol\git\IA\TitanicRegressor\tests\tweedie_regressor" />
+      <recent name="C:\Users\nikol\git\IA\TitanicRegressor\tests\linear\sgd_regressor" />
+      <recent name="C:\Users\nikol\git\IA\TitanicRegressor\tests\linear\ridge" />
+      <recent name="C:\Users\nikol\git\IA\TitanicRegressor\tests\linear\linear_regressor" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nikol\git\IA\TitanicRegressor\tests\k_neighbors_regressor" />
+      <recent name="C:\Users\nikol\git\IA\TitanicRegressor\tests" />
+      <recent name="C:\Users\nikol\git\IA\TitanicRegressor\tests\linear" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.decision_tree_regressor (1)">
-    <configuration name="data_exploration" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.theil_sen_regressor">
+    <configuration name="gradient_boosting_regressor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TitanicRegressor" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -86,11 +99,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/gradient_boosting_regressor" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/data_exploration.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/gradient_boosting_regressor/gradient_boosting_regressor.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -99,7 +112,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="decision_tree_regressor (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="k_neighbors_regressor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TitanicRegressor" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -108,11 +121,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/decision_tree_regressor" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/k_neighbors_regressor" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/decision_tree_regressor/decision_tree_regressor.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/k_neighbors_regressor/k_neighbors_regressor.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -121,7 +134,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="decision_tree_regressor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="sgd_regressor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TitanicRegressor" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -130,11 +143,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/decision_tree_regressor" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/sgd_regressor" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\nikol\git\IA\TitanicRegressor\tests\decision_tree_regressor\decision_tree_regressor.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/sgd_regressor/sgd_regressor.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -143,7 +156,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="decision_tree_regressor_k_best_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="theil_sen_regressor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TitanicRegressor" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -152,11 +165,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/decision_tree_regressor" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/theil_sen_regressor" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/decision_tree_regressor/decision_tree_regressor_k_best_test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/theil_sen_regressor/theil_sen_regressor.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -165,7 +178,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="decision_tree_regressor_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="tweedie_regressor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TitanicRegressor" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -174,11 +187,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/decision_tree_regressor" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/tweedie_regressor" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/decision_tree_regressor/decision_tree_regressor_test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/tweedie_regressor/tweedie_regressor.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -189,11 +202,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.decision_tree_regressor (1)" />
-        <item itemvalue="Python.decision_tree_regressor_k_best_test" />
-        <item itemvalue="Python.decision_tree_regressor_rfe_cv_test" />
-        <item itemvalue="Python.decision_tree_regressor_test" />
-        <item itemvalue="Python.data_exploration" />
+        <item itemvalue="Python.theil_sen_regressor" />
+        <item itemvalue="Python.tweedie_regressor" />
+        <item itemvalue="Python.gradient_boosting_regressor" />
+        <item itemvalue="Python.sgd_regressor" />
+        <item itemvalue="Python.k_neighbors_regressor" />
       </list>
     </recent_temporary>
   </component>
@@ -213,6 +226,19 @@
       <option name="presentableId" value="Default" />
       <updated>1728944282249</updated>
     </task>
+    <task id="LOCAL-00001" summary="feat: implementação com DecisionTreeRegressor">
+      <option name="closed" value="true" />
+      <created>1729130243175</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1729130243175</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: implementação com DecisionTreeRegressor" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: implementação com DecisionTreeRegressor" />
   </component>
 </project>

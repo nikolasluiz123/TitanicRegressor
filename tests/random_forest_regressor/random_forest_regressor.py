@@ -1,5 +1,6 @@
 import pandas as pd
 from scipy.stats import randint, uniform
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.tree import DecisionTreeRegressor
 from tabulate import tabulate
 
@@ -25,16 +26,16 @@ print()
 y = df_train['sobreviveu']
 
 search_params = {
+    'n_estimators': randint(10, 300),
     'criterion': ['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
-    'splitter': ['best', 'random'],
-    'max_depth': randint(1, 10),
+    'max_depth': randint(1, 20),
     'min_samples_split': randint(2, 20),
     'min_samples_leaf': randint(1, 20),
     'min_weight_fraction_leaf': uniform(loc=0.1, scale=0.4),
     'max_features': [None, 'sqrt', 'log2'],
 }
 
-feature_searcher = RecursiveFeatureSearcher(log_level=0)
+feature_searcher = RecursiveFeatureSearcher(log_level=1)
 params_searcher = RegressorRandomHipperParamsSearcher(params=search_params)
 validator = CrossValidator()
 history_manager = CrossValidationHistoryManager(output_directory='history',
@@ -44,13 +45,13 @@ history_manager = CrossValidationHistoryManager(output_directory='history',
 process_manager = ProcessManager(
     data_x=x,
     data_y=y,
-    estimator=DecisionTreeRegressor(),
+    estimator=RandomForestRegressor(),
     seed=42,
     feature_searcher=feature_searcher,
     params_searcher=params_searcher,
     validator=validator,
     history_manager=history_manager,
-    save_history=False,
+    save_history=True,
 )
 
 process_manager.process(number_interations=2000)

@@ -9,8 +9,11 @@ class RecursiveFeatureSearcher(FeaturesSearcher):
 
     def __init__(self,
                  n_jobs: int = -1,
-                 log_level: int = 1):
+                 log_level: int = 1,
+                 min_feeatures: int = 3):
         super().__init__(n_jobs, log_level)
+
+        self.min_feeatures = min_feeatures
 
     def select_features(self, estimator, data_x, data_y, scoring:str='neg_mean_squared_error'):
         self.start_search_features_time = time.time()
@@ -19,7 +22,8 @@ class RecursiveFeatureSearcher(FeaturesSearcher):
                          cv=self.cv,
                          scoring=scoring,
                          n_jobs=self.n_jobs,
-                         verbose=self.log_level)
+                         verbose=self.log_level,
+                         min_features_to_select=self.min_feeatures)
         searcher = searcher.fit(data_x, data_y)
 
         self.end_search_features_time = time.time()

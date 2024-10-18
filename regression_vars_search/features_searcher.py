@@ -16,5 +16,5 @@ class FeaturesSearcher(ABC):
         self.end_search_features_time = 0
 
     @abstractmethod
-    def select_features(self, estimator, data_x, data_y, scoring:str='neg_mean_squared_error'):
+    def select_features(self, data_x, data_y, estimator=None, scoring:str='neg_mean_squared_error'):
         ...
