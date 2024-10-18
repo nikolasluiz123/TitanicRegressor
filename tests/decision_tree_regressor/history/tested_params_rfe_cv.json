@@ -1,0 +1,32 @@
+[
+    {
+        "mean": -0.14843476258013552,
+        "standard_deviation": 0.013507807732570246,
+        "median": -0.147060652098272,
+        "variance": 0.00018246086974008454,
+        "standard_error": 0.006040875263404874,
+        "min_max_score": [
+            -0.17157376324697227,
+            -0.12919957065081372
+        ],
+        "estimator_params": {
+            "ccp_alpha": 0.0,
+            "criterion": "friedman_mse",
+            "max_depth": 5,
+            "max_features": null,
+            "max_leaf_nodes": null,
+            "min_impurity_decrease": 0.0,
+            "min_samples_leaf": 7,
+            "min_samples_split": 18,
+            "min_weight_fraction_leaf": 0.1058513035510703,
+            "monotonic_cst": null,
+            "random_state": null,
+            "splitter": "best"
+        },
+        "scoring": "neg_mean_squared_error",
+        "features": "classe_social, idade, qtd_irmaos_conjuges, qtd_pais_filhos, valor_ticket, sexo_female, cabine_C22 C26, cabine_E77",
+        "feature_selection_time": "00:00:02",
+        "search_time": "00:00:04",
+        "validation_time": "00:00:24"
+    }
+]

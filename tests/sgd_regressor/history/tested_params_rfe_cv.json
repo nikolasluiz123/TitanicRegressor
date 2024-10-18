@@ -1,0 +1,39 @@
+[
+    {
+        "mean": -0.15272328018870324,
+        "standard_deviation": 0.017174392536204737,
+        "median": -0.1552542234266024,
+        "variance": 0.00029495975898764494,
+        "standard_error": 0.0076806218366437615,
+        "min_max_score": [
+            -0.17414071861987496,
+            -0.1249388804489104
+        ],
+        "estimator_params": {
+            "alpha": 0.32811141670571464,
+            "average": false,
+            "early_stopping": false,
+            "epsilon": 0.1,
+            "eta0": 0.01,
+            "fit_intercept": true,
+            "l1_ratio": 0.7934333078071268,
+            "learning_rate": "invscaling",
+            "loss": "epsilon_insensitive",
+            "max_iter": 964,
+            "n_iter_no_change": 5,
+            "penalty": "l2",
+            "power_t": 0.25,
+            "random_state": null,
+            "shuffle": true,
+            "tol": 0.001,
+            "validation_fraction": 0.1,
+            "verbose": 0,
+            "warm_start": false
+        },
+        "scoring": "neg_mean_squared_error",
+        "features": "classe_social, qtd_irmaos_conjuges, sexo_female, cabine_B96 B98",
+        "feature_selection_time": "00:00:02",
+        "search_time": "00:00:05",
+        "validation_time": "00:00:31"
+    }
+]
