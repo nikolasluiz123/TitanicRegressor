@@ -1,19 +1,15 @@
 from abc import ABC, abstractmethod
+from typing import Any
 
 import pandas as pd
 from tabulate import tabulate
 
 
 class ValidationResult(ABC):
-    """
-    Classe base de resultado de validação dos modelos de classificação
-    """
 
     @abstractmethod
-    def show_cross_val_metrics(self):
-        """
-        Função para exibir as métricas de validação.
-        """
+    def append_data(self, pipeline_infos: dict[str, Any]) -> dict[str, Any]:
+        ...
 
 
 class CrossValidationResult(ValidationResult):
@@ -52,19 +48,16 @@ class CrossValidationResult(ValidationResult):
         self.estimator = estimator
         self.scoring = scoring
 
-    def show_cross_val_metrics(self):
-        print("Resultados das Métricas de Validação Cruzada da Classificação")
-        print("-" * 50)
-        print(f"Média dos scores          : {self.mean:.4f}")
-        print(f"Desvio padrão             : {self.standard_deviation:.4f}")
-        print(f"Mediana dos scores        : {self.median:.4f}")
-        print(f"Variância dos scores      : {self.variance:.4f}")
-        print(f"Erro padrão da média      : {self.standard_error:.4f}")
-        print(f"Score mínimo              : {self.min_max_score[0]:.4f}")
-        print(f"Score máximo              : {self.min_max_score[1]:.4f}")
-        print(f"Scoring                   : {self.scoring}")
-        print(f"Melhor Estimator          : {self.estimator} ")
-        print("-" * 50)
+    def append_data(self, pipeline_infos: dict[str, Any]) -> dict[str, Any]:
+        pipeline_infos['mean'] = self.mean
+        pipeline_infos['standard_deviation'] = self.standard_deviation
+        pipeline_infos['median'] = self.median
+        pipeline_infos['variance'] = self.variance
+        pipeline_infos['standard_error'] = self.standard_error
+        pipeline_infos['min_max_score'] = self.min_max_score
+        pipeline_infos['scoring'] = self.scoring
+
+        return pipeline_infos
 
 
 class XGBoostCrossValidationResult(ValidationResult):
@@ -86,24 +79,11 @@ class XGBoostCrossValidationResult(ValidationResult):
         self.best_params = best_params
         self.estimator = estimator
 
-    def show_cross_val_metrics(self):
-        data = {
-            "Métricas": self.metrics,
-            "Média no Treino": [self._find_value(self.train_means, m) for m in self.metrics],
-            "Desvio Padrão no Treino": [self._find_value(self.train_standard_errors, m) for m in self.metrics],
-            "Média no Teste": [self._find_value(self.test_means, m) for m in self.metrics],
-            "Desvio Padrão no Teste": [self._find_value(self.test_standard_errors, m) for m in self.metrics],
-        }
-        df = pd.DataFrame(data)
+    def append_data(self, pipeline_infos: dict[str, Any]) -> dict[str, Any]:
+        pipeline_infos['metrics'] = self.metrics
+        pipeline_infos['train_means'] = self.train_means
+        pipeline_infos['train_standard_errors'] = self.train_standard_errors
+        pipeline_infos['test_means'] = self.test_means
+        pipeline_infos['test_standard_errors'] = self.test_standard_errors
 
-        print('\nResultados das Métricas de Validação Cruzada')
-        print(tabulate(df, headers='keys', tablefmt='fancy_grid', floatfmt=".6f"))
-
-    def _find_value(self, data: list[tuple[str, float]], metric: str) -> float:
-        """Função auxiliar para encontrar o valor correspondente a uma métrica."""
-
-        for m, value in data:
-            if m == metric:
-                return value
-
-        return float('nan')
+        return pipeline_infos

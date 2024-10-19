@@ -7,7 +7,7 @@ class FeaturesSearcher(ABC):
 
     def __init__(self,
                  n_jobs: int = -1,
-                 log_level: int = 1):
+                 log_level: int = 0):
         self.n_jobs = n_jobs
         self.log_level = log_level
 

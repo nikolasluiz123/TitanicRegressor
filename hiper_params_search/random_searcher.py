@@ -2,32 +2,30 @@ import time
 
 from sklearn.model_selection import RandomizedSearchCV
 
-from hiper_params_search.searcher import RegressorHipperParamsSearcher
-
-
-class RegressorRandomHipperParamsSearcher(RegressorHipperParamsSearcher):
-    """
-    Classe específica para buscar hiper parâmetros utilizando o metodo de pesquisa aleatória, onde um número específico
-    de combinações será testada
-    """
+class RandomHipperParamsSearcher:
 
     def __init__(self,
                  number_iterations: int,
-                 params: dict[str, list],
                  n_jobs: int = -1,
-                 log_level: int = 1):
-        super().__init__(number_iterations, params, n_jobs, log_level)
+                 log_level: int = 0):
+        self.number_iterations = number_iterations
+        self.n_jobs = n_jobs
+        self.log_level = log_level
+
+        self.start_search_parameter_time = 0
+        self.end_search_parameter_time = 0
 
     def search_hipper_parameters(self,
                                  estimator,
+                                 params,
                                  data_x,
                                  data_y,
                                  cv,
-                                 scoring:str='neg_mean_squared_error') -> RandomizedSearchCV:
+                                 scoring: str) -> RandomizedSearchCV:
         self.start_search_parameter_time = time.time()
 
         search = RandomizedSearchCV(estimator=estimator,
-                                    param_distributions=self.params,
+                                    param_distributions=params,
                                     cv=cv,
                                     n_jobs=self.n_jobs,
                                     verbose=self.log_level,

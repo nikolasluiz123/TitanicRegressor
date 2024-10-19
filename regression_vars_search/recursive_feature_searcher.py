@@ -9,7 +9,7 @@ class RecursiveFeatureSearcher(FeaturesSearcher):
 
     def __init__(self,
                  n_jobs: int = -1,
-                 log_level: int = 1,
+                 log_level: int = 0,
                  min_features: int = 3):
         super().__init__(n_jobs, log_level)
 

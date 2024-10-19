@@ -1,0 +1,131 @@
+[
+    {
+        "train_means": [
+            [
+                "rmse",
+                0.32951286494179455
+            ]
+        ],
+        "train_standard_errors": [
+            [
+                "rmse",
+                0.003659323323585373
+            ]
+        ],
+        "test_means": [
+            [
+                "rmse",
+                0.37309760915506957
+            ]
+        ],
+        "test_standard_errors": [
+            [
+                "rmse",
+                0.032009991335241315
+            ]
+        ],
+        "metrics": [
+            "rmse"
+        ],
+        "scoring": "neg_mean_squared_error",
+        "features": "classe_social, qtd_pais_filhos, valor_ticket, sexo_female, sexo_male",
+        "estimator_params": {
+            "colsample_bytree": 0.6566275194760658,
+            "gamma": 0.2056950196175697,
+            "learning_rate": 0.1849549270959362,
+            "max_delta_step": 8,
+            "max_depth": 17,
+            "min_child_weight": 2,
+            "subsample": 0.8970029598063395
+        },
+        "feature_selection_time": "00:00:00.000",
+        "search_time": "00:00:04.000",
+        "validation_time": "00:00:00.000"
+    },
+    {
+        "train_means": [
+            [
+                "rmse",
+                0.32951286494179455
+            ]
+        ],
+        "train_standard_errors": [
+            [
+                "rmse",
+                0.003659323323585373
+            ]
+        ],
+        "test_means": [
+            [
+                "rmse",
+                0.37309760915506957
+            ]
+        ],
+        "test_standard_errors": [
+            [
+                "rmse",
+                0.032009991335241315
+            ]
+        ],
+        "metrics": [
+            "rmse"
+        ],
+        "scoring": "neg_mean_squared_error",
+        "features": "classe_social, qtd_pais_filhos, valor_ticket, sexo_female, sexo_male",
+        "estimator_params": {
+            "colsample_bytree": 0.6566275194760658,
+            "gamma": 0.2056950196175697,
+            "learning_rate": 0.1849549270959362,
+            "max_delta_step": 8,
+            "max_depth": 17,
+            "min_child_weight": 2,
+            "subsample": 0.8970029598063395
+        },
+        "feature_selection_time": "00:00:00.000",
+        "search_time": "00:00:04.000",
+        "validation_time": "00:00:00.000"
+    },
+    {
+        "train_means": [
+            [
+                "rmse",
+                0.3295
+            ]
+        ],
+        "train_standard_errors": [
+            [
+                "rmse",
+                0.0037
+            ]
+        ],
+        "test_means": [
+            [
+                "rmse",
+                0.3731
+            ]
+        ],
+        "test_standard_errors": [
+            [
+                "rmse",
+                0.032
+            ]
+        ],
+        "metrics": [
+            "rmse"
+        ],
+        "scoring": "neg_mean_squared_error",
+        "features": "classe_social, qtd_pais_filhos, valor_ticket, sexo_female, sexo_male",
+        "estimator_params": {
+            "colsample_bytree": 0.6566275194760658,
+            "gamma": 0.2056950196175697,
+            "learning_rate": 0.1849549270959362,
+            "max_delta_step": 8,
+            "max_depth": 17,
+            "min_child_weight": 2,
+            "subsample": 0.8970029598063395
+        },
+        "feature_selection_time": "00:00:00.000",
+        "search_time": "00:00:04.000",
+        "validation_time": "00:00:00.000"
+    }
+]

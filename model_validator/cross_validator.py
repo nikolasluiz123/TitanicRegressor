@@ -1,8 +1,7 @@
 import time
+
 import numpy as np
 import xgboost as xgb
-
-from typing import Any
 from pandas import DataFrame
 from sklearn.model_selection import cross_val_score, KFold
 from xgboost import DMatrix
@@ -17,7 +16,7 @@ class CrossValidatorScikitLearn(ScikitLearnBaseValidator):
     """
 
     def __init__(self,
-                 log_level: int = 1,
+                 log_level: int = 0,
                  n_jobs: int = -1):
         super().__init__(log_level, n_jobs)
 
@@ -45,7 +44,7 @@ class CrossValidatorScikitLearn(ScikitLearnBaseValidator):
             median=np.median(scores),
             variance=np.var(scores),
             standard_error=np.std(scores) / np.sqrt(len(scores)),
-            min_max_score=(np.min(scores), np.max(scores)),
+            min_max_score=(round(float(np.min(scores)), 4), round(float(np.max(scores)), 4)),
             estimator=searcher.best_estimator_,
             scoring=scoring
         )
@@ -83,7 +82,7 @@ class XGBoostCrossValidator(XGBoostBaseValidator):
     @staticmethod
     def __extract_results(searcher, cv_df: DataFrame, metrics: list[str]) -> XGBoostCrossValidationResult:
         def __get_last_row_value(col_name: str) -> float:
-            return cv_df[col_name].iloc[-1] if col_name in cv_df.columns else float('nan')
+            return round(float(cv_df[col_name].iloc[-1] if col_name in cv_df.columns else float('nan')), 4)
 
         train_means, train_std_errs = [], []
         test_means, test_std_errs = [], []
