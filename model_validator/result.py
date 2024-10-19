@@ -1,5 +1,8 @@
 from abc import ABC, abstractmethod
 
+import pandas as pd
+from tabulate import tabulate
+
 
 class ValidationResult(ABC):
     """
@@ -11,6 +14,7 @@ class ValidationResult(ABC):
         """
         Função para exibir as métricas de validação.
         """
+
 
 class CrossValidationResult(ValidationResult):
 
@@ -61,3 +65,45 @@ class CrossValidationResult(ValidationResult):
         print(f"Scoring                   : {self.scoring}")
         print(f"Melhor Estimator          : {self.estimator} ")
         print("-" * 50)
+
+
+class XGBoostCrossValidationResult(ValidationResult):
+
+    def __init__(self,
+                 train_means: list[tuple[str, float]],
+                 train_standard_errors: list[tuple[str, float]],
+                 test_means: list[tuple[str, float]],
+                 test_standard_errors: list[tuple[str, float]],
+                 metrics: list[str],
+                 best_params,
+                 estimator):
+
+        self.train_means = train_means
+        self.train_standard_errors = train_standard_errors
+        self.test_means = test_means
+        self.test_standard_errors = test_standard_errors
+        self.metrics = metrics
+        self.best_params = best_params
+        self.estimator = estimator
+
+    def show_cross_val_metrics(self):
+        data = {
+            "Métricas": self.metrics,
+            "Média no Treino": [self._find_value(self.train_means, m) for m in self.metrics],
+            "Desvio Padrão no Treino": [self._find_value(self.train_standard_errors, m) for m in self.metrics],
+            "Média no Teste": [self._find_value(self.test_means, m) for m in self.metrics],
+            "Desvio Padrão no Teste": [self._find_value(self.test_standard_errors, m) for m in self.metrics],
+        }
+        df = pd.DataFrame(data)
+
+        print('\nResultados das Métricas de Validação Cruzada')
+        print(tabulate(df, headers='keys', tablefmt='fancy_grid', floatfmt=".6f"))
+
+    def _find_value(self, data: list[tuple[str, float]], metric: str) -> float:
+        """Função auxiliar para encontrar o valor correspondente a uma métrica."""
+
+        for m, value in data:
+            if m == metric:
+                return value
+
+        return float('nan')

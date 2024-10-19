@@ -15,7 +15,7 @@ class SelectKBestFeatureSearcher(FeaturesSearcher):
 
         self.feature_numer = feature_number
 
-    def select_features(self, data_x, data_y, estimator=None, scoring:str='neg_mean_squared_error'):
+    def select_features(self, data_x, data_y, cv, scoring:str='neg_mean_squared_error', estimator=None):
         self.start_search_features_time = time.time()
 
         searcher = SelectKBest(score_func=f_regression, k=self.feature_numer)

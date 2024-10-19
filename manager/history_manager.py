@@ -3,7 +3,7 @@ import os
 import pickle
 from abc import ABC, abstractmethod
 
-from model_validator.result import CrossValidationResult, ValidationResult
+from model_validator.result import CrossValidationResult, ValidationResult, XGBoostCrossValidationResult
 
 
 class HistoryManager(ABC):
@@ -200,5 +200,48 @@ class CrossValidationHistoryManager(HistoryManager):
             standard_error=result_dict['standard_error'],
             min_max_score=result_dict['min_max_score'],
             scoring=result_dict['scoring'],
+            estimator=self.get_saved_model(self._get_history_len()),
+        )
+
+class XGBoostValidationHistoryManager(HistoryManager):
+
+    def __init__(self, output_directory: str, models_directory: str, params_file_name: str):
+        super().__init__(output_directory, models_directory, params_file_name)
+
+    def save_result(self,
+                    classifier_result: XGBoostCrossValidationResult,
+                    feature_selection_time: str,
+                    search_time: str,
+                    validation_time: str,
+                    scoring: str,
+                    features: list[str]):
+        dictionary = {
+            'train_means': classifier_result.train_means,
+            'train_standard_errors': classifier_result.train_standard_errors,
+            'test_means': classifier_result.test_means,
+            'test_standard_errors': classifier_result.test_standard_errors,
+            'metrics': classifier_result.metrics,
+            'scoring': scoring,
+            'features': ", ".join(features),
+            'estimator_params': classifier_result.best_params,
+            'feature_selection_time': feature_selection_time,
+            'search_time': search_time,
+            'validation_time': validation_time
+        }
+
+        self._create_output_dir()
+        self._save_dictionary_in_json(dictionary)
+        self._save_model(classifier_result.estimator)
+
+    def load_result_from_history(self, index: int = -1) -> XGBoostCrossValidationResult:
+        result_dict = self._get_dictionary_from_json(index)
+
+        return XGBoostCrossValidationResult(
+            train_means=result_dict['train_means'],
+            train_standard_errors=result_dict['train_standard_errors'],
+            test_means=result_dict['test_means'],
+            test_standard_errors=result_dict['test_standard_errors'],
+            metrics=result_dict['metrics'],
+            best_params=result_dict['estimator_params'],
             estimator=self.get_saved_model(self._get_history_len()),
         )

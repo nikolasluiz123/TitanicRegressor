@@ -4,12 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cff482e-a2fb-450d-9eac-36ee01549166" name="Changes" comment="feat: teste de modelos de regressão variados">
+    <list default="true" id="3cff482e-a2fb-450d-9eac-36ee01549166" name="Changes" comment="fix: novo teste com pequenos ajustes nos parâmetros por curiosidade">
+      <change afterPath="$PROJECT_DIR$/tests/xg_boost_regressor/xg_boost.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hiper_params_search/random_searcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/hiper_params_search/random_searcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hiper_params_search/searcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/hiper_params_search/searcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager/history_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/manager/history_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager/process_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/manager/process_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_validator/cross_validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_validator/cross_validator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_validator/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_validator/result.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_validator/validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_validator/validator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/regression_vars_search/features_searcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/regression_vars_search/features_searcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/regression_vars_search/k_best_feature_searcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/regression_vars_search/k_best_feature_searcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/regression_vars_search/recursive_feature_searcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/regression_vars_search/recursive_feature_searcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/decision_tree_regressor/decision_tree_regressor.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/decision_tree_regressor/decision_tree_regressor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/elastic_net/elastic_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/elastic_net/elastic_net.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/gradient_boosting_regressor/gradient_boosting_regressor.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/gradient_boosting_regressor/gradient_boosting_regressor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/gradient_boosting_regressor/history/tested_params_rfe_cv.json" beforeDir="false" afterPath="$PROJECT_DIR$/tests/gradient_boosting_regressor/history/tested_params_rfe_cv.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/random_forest_regressor/history/tested_params_rfe_cv.json" beforeDir="false" afterPath="$PROJECT_DIR$/tests/random_forest_regressor/history/tested_params_rfe_cv.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/random_forest_regressor/random_forest_regressor.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/random_forest_regressor/random_forest_regressor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/sgd_regressor/sgd_regressor.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/sgd_regressor/sgd_regressor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/theil_sen_regressor/theil_sen_regressor.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/theil_sen_regressor/theil_sen_regressor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,27 +63,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.data_exploration.executor&quot;: &quot;Run&quot;,
-    &quot;Python.decision_tree_regressor (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.decision_tree_regressor_k_best_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.decision_tree_regressor_rfe_cv_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.decision_tree_regressor_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.elastic_net.executor&quot;: &quot;Run&quot;,
-    &quot;Python.gradient_boosting_regressor.executor&quot;: &quot;Run&quot;,
-    &quot;Python.k_neighbors_regressor.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.random_forest_regressor.executor&quot;: &quot;Run&quot;,
-    &quot;Python.sgd_regressor.executor&quot;: &quot;Run&quot;,
-    &quot;Python.theil_sen_regressor.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tweedie_regressor.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/nikol/git/IA/TitanicRegressor/regression_vars_search&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.data_exploration.executor": "Run",
+    "Python.decision_tree_regressor (1).executor": "Run",
+    "Python.decision_tree_regressor.executor": "Run",
+    "Python.decision_tree_regressor_k_best_test.executor": "Run",
+    "Python.decision_tree_regressor_rfe_cv_test.executor": "Run",
+    "Python.decision_tree_regressor_test.executor": "Run",
+    "Python.elastic_net.executor": "Run",
+    "Python.gradient_boosting_regressor.executor": "Run",
+    "Python.k_neighbors_regressor.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.random_forest_regressor.executor": "Run",
+    "Python.sgd_regressor.executor": "Run",
+    "Python.theil_sen_regressor.executor": "Run",
+    "Python.tweedie_regressor.executor": "Run",
+    "Python.xg_boost.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/nikol/git/IA/TitanicRegressor/regression_vars_search"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\nikol\git\IA\TitanicRegressor\regression_vars_search" />
@@ -84,7 +100,7 @@
       <recent name="C:\Users\nikol\git\IA\TitanicRegressor\tests\linear" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.gradient_boosting_regressor">
+  <component name="RunManager" selected="Python.xg_boost">
     <configuration name="gradient_boosting_regressor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TitanicRegressor" />
       <option name="ENV_FILES" value="" />
@@ -173,7 +189,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="tweedie_regressor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="xg_boost" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TitanicRegressor" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -182,11 +198,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/tweedie_regressor" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/xg_boost_regressor" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/tweedie_regressor/tweedie_regressor.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/xg_boost_regressor/xg_boost.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -197,11 +213,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.gradient_boosting_regressor" />
-        <item itemvalue="Python.random_forest_regressor" />
+        <item itemvalue="Python.xg_boost" />
         <item itemvalue="Python.theil_sen_regressor" />
-        <item itemvalue="Python.tweedie_regressor" />
         <item itemvalue="Python.sgd_regressor" />
+        <item itemvalue="Python.random_forest_regressor" />
+        <item itemvalue="Python.gradient_boosting_regressor" />
       </list>
     </recent_temporary>
   </component>
@@ -245,12 +261,21 @@
       <option name="project" value="LOCAL" />
       <updated>1729216114738</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix: novo teste com pequenos ajustes nos parâmetros por curiosidade">
+      <option name="closed" value="true" />
+      <created>1729293899231</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1729293899231</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: implementação com DecisionTreeRegressor" />
     <MESSAGE value="feat: teste de modelos de regressão variados" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: teste de modelos de regressão variados" />
+    <MESSAGE value="fix: novo teste com pequenos ajustes nos parâmetros por curiosidade" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: novo teste com pequenos ajustes nos parâmetros por curiosidade" />
   </component>
 </project>

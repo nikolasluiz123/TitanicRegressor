@@ -9,6 +9,7 @@ class RegressorHipperParamsSearcher(ABC):
     """
 
     def __init__(self,
+                 number_iterations: int,
                  params: dict[str, list],
                  n_jobs: int = -1,
                  log_level: int = 1):
@@ -23,6 +24,7 @@ class RegressorHipperParamsSearcher(ABC):
         self.params = params
         self.n_jobs = n_jobs
         self.log_level = log_level
+        self.number_iterations = number_iterations
 
         self.cv = KFold(n_splits=5, shuffle=True)
         self.start_search_parameter_time = 0
@@ -33,7 +35,7 @@ class RegressorHipperParamsSearcher(ABC):
                                  estimator,
                                  data_x,
                                  data_y,
-                                 number_iterations: int,
+                                 cv,
                                  scoring:str='neg_mean_squared_error'):
         """
         Função que deve realizar a busca dos hiper parâmetros.

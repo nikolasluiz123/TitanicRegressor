@@ -7,8 +7,8 @@ from tabulate import tabulate
 from data.data_processing import get_train_data
 from hiper_params_search.random_searcher import RegressorRandomHipperParamsSearcher
 from manager.history_manager import CrossValidationHistoryManager
-from manager.process_manager import ProcessManager
-from model_validator.cross_validator import CrossValidator
+from manager.process_manager import ScikitLearnProcessManager
+from model_validator.cross_validator import CrossValidatorScikitLearn
 from regression_vars_search.k_best_feature_searcher import SelectKBestFeatureSearcher
 from regression_vars_search.recursive_feature_searcher import RecursiveFeatureSearcher
 
@@ -31,23 +31,24 @@ search_params = {
     'fit_intercept': [True, False]
 }
 
-feature_searcher = SelectKBestFeatureSearcher(log_level=0, feature_number=3)
-params_searcher = RegressorRandomHipperParamsSearcher(params=search_params)
-validator = CrossValidator()
+feature_searcher = SelectKBestFeatureSearcher(log_level=1, feature_number=5)
+params_searcher = RegressorRandomHipperParamsSearcher(params=search_params, number_iterations=100, log_level=1)
+validator = CrossValidatorScikitLearn(log_level=1)
 history_manager = CrossValidationHistoryManager(output_directory='history',
                                                 models_directory='models_select_k_best',
                                                 params_file_name='tested_params_select_k_best')
 
-process_manager = ProcessManager(
+process_manager = ScikitLearnProcessManager(
     data_x=x,
     data_y=y,
     estimator=TheilSenRegressor(),
+    scoring='neg_mean_squared_error',
     seed=42,
     feature_searcher=feature_searcher,
     params_searcher=params_searcher,
     validator=validator,
     history_manager=history_manager,
-    save_history=True,
+    save_history=False,
 )
 
-process_manager.process(number_interations=10)
+process_manager.process()

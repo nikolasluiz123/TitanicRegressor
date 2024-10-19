@@ -12,25 +12,26 @@ class RegressorRandomHipperParamsSearcher(RegressorHipperParamsSearcher):
     """
 
     def __init__(self,
+                 number_iterations: int,
                  params: dict[str, list],
                  n_jobs: int = -1,
                  log_level: int = 1):
-        super().__init__(params, n_jobs, log_level)
+        super().__init__(number_iterations, params, n_jobs, log_level)
 
     def search_hipper_parameters(self,
                                  estimator,
                                  data_x,
                                  data_y,
-                                 number_iterations: int,
+                                 cv,
                                  scoring:str='neg_mean_squared_error') -> RandomizedSearchCV:
         self.start_search_parameter_time = time.time()
 
         search = RandomizedSearchCV(estimator=estimator,
                                     param_distributions=self.params,
-                                    cv=self.cv,
+                                    cv=cv,
                                     n_jobs=self.n_jobs,
                                     verbose=self.log_level,
-                                    n_iter=number_iterations,
+                                    n_iter=self.number_iterations,
                                     scoring=scoring)
 
         search.fit(X=data_x, y=data_y)

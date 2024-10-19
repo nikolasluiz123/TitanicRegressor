@@ -11,10 +11,9 @@ class FeaturesSearcher(ABC):
         self.n_jobs = n_jobs
         self.log_level = log_level
 
-        self.cv = KFold(n_splits=5, shuffle=True)
         self.start_search_features_time = 0
         self.end_search_features_time = 0
 
     @abstractmethod
-    def select_features(self, data_x, data_y, estimator=None, scoring:str='neg_mean_squared_error'):
+    def select_features(self, data_x, data_y, cv, scoring:str='neg_mean_squared_error', estimator=None):
         ...
