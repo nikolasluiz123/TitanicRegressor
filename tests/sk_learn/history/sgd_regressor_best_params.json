@@ -1,0 +1,78 @@
+[
+    {
+        "estimator": "SGDRegressor",
+        "mean": -0.36958644063109625,
+        "standard_deviation": 0.160244617789329,
+        "median": -0.3177788562274996,
+        "variance": 0.025678337530448136,
+        "standard_error": 0.05067379749974155,
+        "min_max_score": [
+            -0.8012,
+            -0.1949
+        ],
+        "estimator_params": {
+            "alpha": 0.23837632981949178,
+            "average": false,
+            "early_stopping": false,
+            "epsilon": 0.1,
+            "eta0": 0.01,
+            "fit_intercept": false,
+            "l1_ratio": 0.5081054199419319,
+            "learning_rate": "invscaling",
+            "loss": "huber",
+            "max_iter": 420,
+            "n_iter_no_change": 5,
+            "penalty": "elasticnet",
+            "power_t": 0.25,
+            "random_state": null,
+            "shuffle": true,
+            "tol": 0.001,
+            "validation_fraction": 0.1,
+            "verbose": 0,
+            "warm_start": false
+        },
+        "scoring": "neg_mean_squared_error",
+        "features": "idade, valor_ticket, sexo_female",
+        "feature_selection_time": "00:00:00.000",
+        "search_time": "00:00:00.000",
+        "validation_time": "00:00:00.000"
+    },
+    {
+        "estimator": "SGDRegressor",
+        "mean": -0.6881497824719089,
+        "standard_deviation": 0.5341097877278383,
+        "median": -0.43975221665354425,
+        "variance": 0.2852732653466766,
+        "standard_error": 0.16890034498090184,
+        "min_max_score": [
+            -2.047,
+            -0.3455
+        ],
+        "estimator_params": {
+            "alpha": 0.448034337757258,
+            "average": false,
+            "early_stopping": false,
+            "epsilon": 0.1,
+            "eta0": 0.01,
+            "fit_intercept": false,
+            "l1_ratio": 0.4586603161303624,
+            "learning_rate": "invscaling",
+            "loss": "huber",
+            "max_iter": 1685,
+            "n_iter_no_change": 5,
+            "penalty": null,
+            "power_t": 0.25,
+            "random_state": null,
+            "shuffle": true,
+            "tol": 0.001,
+            "validation_fraction": 0.1,
+            "verbose": 0,
+            "warm_start": false
+        },
+        "scoring": "neg_mean_squared_error",
+        "features": "idade, valor_ticket, sexo_female",
+        "feature_selection_time": "00:00:00.000",
+        "search_time": "00:00:03.000",
+        "validation_time": "00:00:32.000"
+    }
+]

@@ -1,0 +1,76 @@
+[
+    {
+        "estimator": "RandomForestRegressor",
+        "mean": -0.16933131519945663,
+        "standard_deviation": 0.020585992414089756,
+        "median": -0.16660836895432832,
+        "variance": 0.000423783083672961,
+        "standard_error": 0.0065098623923471755,
+        "min_max_score": [
+            -0.2072,
+            -0.1313
+        ],
+        "estimator_params": {
+            "bootstrap": true,
+            "ccp_alpha": 0.0,
+            "criterion": "poisson",
+            "max_depth": 12,
+            "max_features": null,
+            "max_leaf_nodes": null,
+            "max_samples": null,
+            "min_impurity_decrease": 0.0,
+            "min_samples_leaf": 9,
+            "min_samples_split": 9,
+            "min_weight_fraction_leaf": 0.20586642556227025,
+            "monotonic_cst": null,
+            "n_estimators": 30,
+            "n_jobs": null,
+            "oob_score": false,
+            "random_state": null,
+            "verbose": 0,
+            "warm_start": false
+        },
+        "scoring": "neg_mean_squared_error",
+        "features": "idade, valor_ticket, sexo_female",
+        "feature_selection_time": "00:00:00.000",
+        "search_time": "00:00:00.000",
+        "validation_time": "00:00:03.000"
+    },
+    {
+        "estimator": "RandomForestRegressor",
+        "mean": -0.16468306551839176,
+        "standard_deviation": 0.023149732113233516,
+        "median": -0.16011923558909308,
+        "variance": 0.000535910096914475,
+        "standard_error": 0.007320588070056087,
+        "min_max_score": [
+            -0.207,
+            -0.1327
+        ],
+        "estimator_params": {
+            "bootstrap": true,
+            "ccp_alpha": 0.0,
+            "criterion": "poisson",
+            "max_depth": 10,
+            "max_features": null,
+            "max_leaf_nodes": null,
+            "max_samples": null,
+            "min_impurity_decrease": 0.0,
+            "min_samples_leaf": 1,
+            "min_samples_split": 16,
+            "min_weight_fraction_leaf": 0.12154339942712818,
+            "monotonic_cst": null,
+            "n_estimators": 22,
+            "n_jobs": null,
+            "oob_score": false,
+            "random_state": null,
+            "verbose": 0,
+            "warm_start": false
+        },
+        "scoring": "neg_mean_squared_error",
+        "features": "idade, valor_ticket, sexo_female",
+        "feature_selection_time": "00:00:00.000",
+        "search_time": "00:00:27.000",
+        "validation_time": "00:05:34.000"
+    }
+]

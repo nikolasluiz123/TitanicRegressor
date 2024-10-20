@@ -1,17 +1,15 @@
 from abc import ABC, abstractmethod
 from enum import Enum
-from typing import Any
 
-from pandas import DataFrame
-from sklearn.model_selection import KFold, StratifiedKFold
+from sklearn.model_selection import RandomizedSearchCV
 from xgboost import DMatrix
 
-from model_validator.result import CrossValidationResult, XGBoostCrossValidationResult
+from model_validator.result import ScikitLearnCrossValidationResult, XGBoostCrossValidationResult
 
 
 class ScikitLearnBaseValidator(ABC):
     """
-    Classe base que todos os validadores de modelo devem implementar
+    Classe base para implementar validadores de estimadores do Scikit-Learn.
     """
 
     def __init__(self,
@@ -28,8 +26,8 @@ class ScikitLearnBaseValidator(ABC):
                  searcher,
                  data_x,
                  data_y,
-                 scoring='neg_mean_squared_error',
-                 cv=KFold(n_splits=5, shuffle=True)) -> CrossValidationResult:
+                 cv,
+                 scoring='neg_mean_squared_error') -> ScikitLearnCrossValidationResult:
         """
         Função para realizar a validação do modelo utilizando alguma estratégia.
 
@@ -38,6 +36,10 @@ class ScikitLearnBaseValidator(ABC):
 
 
 class XGBoostCrossValidationMetrics(Enum):
+    """
+    Enumerador contendo as possíveis métricas que podem ser avaliadas na validação de um estimador do XGBoost.
+    """
+
     ERROR = 'error'
     RMSE = 'rmse'
     LOG_LOSS = 'logloss'
@@ -49,6 +51,9 @@ class XGBoostCrossValidationMetrics(Enum):
 
 
 class XGBoostBaseValidator(ABC):
+    """
+    Classe base para implementar validadores de estimadores do XGBoost.
+    """
 
     def __init__(self,
                  interation_number: int,
@@ -65,7 +70,11 @@ class XGBoostBaseValidator(ABC):
 
     @abstractmethod
     def validate(self,
-                 searcher,
+                 searcher: RandomizedSearchCV,
                  train_matrix: DMatrix,
                  cv) -> XGBoostCrossValidationResult:
-        ...
+        """
+        Função para realizar a validação do modelo utilizando alguma estratégia.
+
+        :return: Retorna um objeto CrossValScoreResult contendo as métricas matemáticas
+        """

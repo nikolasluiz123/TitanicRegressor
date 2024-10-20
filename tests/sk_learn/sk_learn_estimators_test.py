@@ -9,9 +9,9 @@ from sklearn.tree import DecisionTreeRegressor
 from data.data_processing import get_train_data
 from hiper_params_search.random_searcher import RandomHipperParamsSearcher
 from manager.history_manager import CrossValidationHistoryManager
-from manager.sk_learn_multi_process_manager import ScikitLearnPipeline, ScikitLearnMultiProcessManager
+from manager.multi_process_manager import ScikitLearnPipeline, ScikitLearnMultiProcessManager
 from model_validator.cross_validator import CrossValidatorScikitLearn
-from regression_vars_search.k_best_feature_searcher import SelectKBestFeatureSearcher
+from regression_vars_search.recursive_feature_searcher import RecursiveFeatureSearcher
 
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
@@ -24,8 +24,8 @@ obj_columns = df_train.select_dtypes(include='object').columns
 x = pd.get_dummies(x, columns=obj_columns)
 y = df_train['sobreviveu']
 
-feature_searcher = SelectKBestFeatureSearcher(feature_number=5, log_level=1)
-params_searcher = RandomHipperParamsSearcher(number_iterations=2, log_level=1)
+feature_searcher = RecursiveFeatureSearcher(log_level=1)
+params_searcher = RandomHipperParamsSearcher(number_iterations=1000, log_level=1)
 cross_validator = CrossValidatorScikitLearn(log_level=1)
 
 pipelines = [
@@ -139,18 +139,18 @@ pipelines = [
     )
 ]
 
+best_params_history_manager = CrossValidationHistoryManager(output_directory='history_bests',
+                                                            models_directory='best_models',
+                                                            params_file_name='best_params')
 manager = ScikitLearnMultiProcessManager(
     data_x=x,
     data_y=y,
     seed=42,
     fold_splits=10,
     pipelines=pipelines,
-    history_manager=CrossValidationHistoryManager(
-        output_directory='history',
-        models_directory='models',
-        params_file_name='best_params'
-    ),
-    save_history=True
+    history_manager=best_params_history_manager,
+    save_history=True,
+    history_index=-1
 )
 
 manager.process_pipelines()

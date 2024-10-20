@@ -1,17 +1,13 @@
 import pandas as pd
 import xgboost as xgb
-
 from scipy.stats import randint, uniform
-from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
-from sklearn.linear_model import ElasticNet, SGDRegressor, TheilSenRegressor
-from sklearn.tree import DecisionTreeRegressor
 
 from data.data_processing import get_train_data
 from hiper_params_search.random_searcher import RandomHipperParamsSearcher
-from manager.history_manager import CrossValidationHistoryManager, XGBoostValidationHistoryManager
-from manager.sk_learn_multi_process_manager import ScikitLearnPipeline, ScikitLearnMultiProcessManager
-from manager.xg_boost_multi_process_manager import XGBoostPipeline, XGBoostMultiProcessManager
-from model_validator.cross_validator import CrossValidatorScikitLearn, XGBoostCrossValidator
+from manager.history_manager import XGBoostValidationHistoryManager
+from manager.multi_process_manager import XGBoostMultiProcessManager
+from manager.multi_process_manager_pipelines import XGBoostPipeline
+from model_validator.cross_validator import XGBoostCrossValidator
 from model_validator.validator import XGBoostCrossValidationMetrics
 from regression_vars_search.k_best_feature_searcher import SelectKBestFeatureSearcher
 
@@ -31,8 +27,20 @@ cross_validator = XGBoostCrossValidator(interation_number=100,
                                         early_stopping_rounds=1,
                                         verbose_eval=5)
 
-pipelines = [
-    XGBoostPipeline(
+xgboost_regressor_history_manager = XGBoostValidationHistoryManager(output_directory='history',
+                                                                    models_directory='regressor_models',
+                                                                    params_file_name='regressor_best_params')
+
+best_model_history_manager = XGBoostValidationHistoryManager(output_directory='history',
+                                                             models_directory='models',
+                                                             params_file_name='best_params')
+manager = XGBoostMultiProcessManager(
+    data_x=x,
+    data_y=y,
+    seed=42,
+    fold_splits=10,
+    scoring='neg_mean_squared_error',
+    pipelines=XGBoostPipeline(
         estimator=xgb.XGBRegressor(),
         params={
             'colsample_bytree': uniform(loc=0.1, scale=0.8),
@@ -46,25 +54,11 @@ pipelines = [
         feature_searcher=feature_searcher,
         params_searcher=params_searcher,
         validator=cross_validator,
-        history_manager=XGBoostValidationHistoryManager(
-            output_directory='history',
-            models_directory='regressor_models',
-            params_file_name='regressor_best_params')
-    )
-]
-
-manager = XGBoostMultiProcessManager(
-    data_x=x,
-    data_y=y,
-    seed=42,
-    fold_splits=10,
-    pipelines=pipelines,
-    history_manager=CrossValidationHistoryManager(
-        output_directory='history',
-        models_directory='models',
-        params_file_name='best_params'
+        history_manager=xgboost_regressor_history_manager
     ),
-    save_history=True
+    history_manager=best_model_history_manager,
+    save_history=True,
+    history_index=0,
 )
 
 manager.process_pipelines()

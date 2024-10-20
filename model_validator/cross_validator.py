@@ -3,16 +3,16 @@ import time
 import numpy as np
 import xgboost as xgb
 from pandas import DataFrame
-from sklearn.model_selection import cross_val_score, KFold
+from sklearn.model_selection import cross_val_score, KFold, RandomizedSearchCV
 from xgboost import DMatrix
 
-from model_validator.result import CrossValidationResult, XGBoostCrossValidationResult
+from model_validator.result import ScikitLearnCrossValidationResult, XGBoostCrossValidationResult
 from model_validator.validator import ScikitLearnBaseValidator, XGBoostBaseValidator, XGBoostCrossValidationMetrics
 
 
 class CrossValidatorScikitLearn(ScikitLearnBaseValidator):
     """
-    Classe que implementa a validação crusada do modelo encontrado pela busca de hiper parâmetros
+    Classe que implementa a validação cruzada do modelo encontrado pela busca de hiper parâmetros de modelos do Scikit-Learn.
     """
 
     def __init__(self,
@@ -24,8 +24,8 @@ class CrossValidatorScikitLearn(ScikitLearnBaseValidator):
                  searcher,
                  data_x,
                  data_y,
-                 scoring='neg_mean_squared_error',
-                 cv=KFold(n_splits=5, shuffle=True)) -> CrossValidationResult:
+                 cv,
+                 scoring='neg_mean_squared_error') -> ScikitLearnCrossValidationResult:
         self.start_best_model_validation = time.time()
 
         scores = cross_val_score(estimator=searcher,
@@ -38,7 +38,7 @@ class CrossValidatorScikitLearn(ScikitLearnBaseValidator):
 
         self.end_best_model_validation = time.time()
 
-        result = CrossValidationResult(
+        result = ScikitLearnCrossValidationResult(
             mean=np.mean(scores),
             standard_deviation=np.std(scores),
             median=np.median(scores),
@@ -53,6 +53,9 @@ class CrossValidatorScikitLearn(ScikitLearnBaseValidator):
 
 
 class XGBoostCrossValidator(XGBoostBaseValidator):
+    """
+    Classe que implementa a validação cruzada do modelo encontrado pela busca de hiper parâmetros de modelos do XGBoost.
+    """
 
     def __init__(self,
                  interation_number: int,
@@ -62,7 +65,7 @@ class XGBoostCrossValidator(XGBoostBaseValidator):
         super().__init__(interation_number, metrics, early_stopping_rounds, verbose_eval)
 
     def validate(self,
-                 searcher,
+                 searcher: RandomizedSearchCV,
                  train_matrix: DMatrix,
                  cv) -> XGBoostCrossValidationResult:
         metrics_ = [m.value for m in self.metrics]
@@ -80,7 +83,18 @@ class XGBoostCrossValidator(XGBoostBaseValidator):
         return self.__extract_results(searcher=searcher, cv_df=data_frame, metrics=metrics_)
 
     @staticmethod
-    def __extract_results(searcher, cv_df: DataFrame, metrics: list[str]) -> XGBoostCrossValidationResult:
+    def __extract_results(searcher: RandomizedSearchCV,
+                          cv_df: DataFrame,
+                          metrics: list[str]) -> XGBoostCrossValidationResult:
+        """
+
+        :param searcher: Instância de RandomizedSearchCV treinada.
+
+        :param cv_df: DataFrame obtido da validação cruzada do XGBoost.
+
+        :param metrics: Métricas avaliadas.
+        """
+
         def __get_last_row_value(col_name: str) -> float:
             return round(float(cv_df[col_name].iloc[-1] if col_name in cv_df.columns else float('nan')), 4)
 

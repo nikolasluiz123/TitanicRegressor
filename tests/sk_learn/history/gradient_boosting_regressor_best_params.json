@@ -1,0 +1,82 @@
+[
+    {
+        "estimator": "GradientBoostingRegressor",
+        "mean": -0.16708020130603018,
+        "standard_deviation": 0.037400738235347133,
+        "median": -0.15412725978015535,
+        "variance": 0.0013988152205489572,
+        "standard_error": 0.011827151899544357,
+        "min_max_score": [
+            -0.2455,
+            -0.1259
+        ],
+        "estimator_params": {
+            "alpha": 0.9,
+            "ccp_alpha": 0.0,
+            "criterion": "squared_error",
+            "init": null,
+            "learning_rate": 0.3439378446097153,
+            "loss": "huber",
+            "max_depth": 4,
+            "max_features": null,
+            "max_leaf_nodes": null,
+            "min_impurity_decrease": 0.0,
+            "min_samples_leaf": 7,
+            "min_samples_split": 7,
+            "min_weight_fraction_leaf": 0.1962126340720595,
+            "n_estimators": 178,
+            "n_iter_no_change": null,
+            "random_state": null,
+            "subsample": 0.843458216093457,
+            "tol": 0.0001,
+            "validation_fraction": 0.1,
+            "verbose": 0,
+            "warm_start": false
+        },
+        "scoring": "neg_mean_squared_error",
+        "features": "idade, valor_ticket, sexo_female",
+        "feature_selection_time": "00:00:00.000",
+        "search_time": "00:00:01.000",
+        "validation_time": "00:00:28.000"
+    },
+    {
+        "estimator": "GradientBoostingRegressor",
+        "mean": -0.15808256249638025,
+        "standard_deviation": 0.02637336700317602,
+        "median": -0.15368321481062236,
+        "variance": 0.0006955544870842137,
+        "standard_error": 0.008339990929756541,
+        "min_max_score": [
+            -0.1992,
+            -0.1144
+        ],
+        "estimator_params": {
+            "alpha": 0.9,
+            "ccp_alpha": 0.0,
+            "criterion": "friedman_mse",
+            "init": null,
+            "learning_rate": 0.2242786525775548,
+            "loss": "squared_error",
+            "max_depth": 5,
+            "max_features": null,
+            "max_leaf_nodes": null,
+            "min_impurity_decrease": 0.0,
+            "min_samples_leaf": 19,
+            "min_samples_split": 11,
+            "min_weight_fraction_leaf": 0.12555031354475538,
+            "n_estimators": 184,
+            "n_iter_no_change": null,
+            "random_state": null,
+            "subsample": 0.7641201998365604,
+            "tol": 0.0001,
+            "validation_fraction": 0.1,
+            "verbose": 0,
+            "warm_start": false
+        },
+        "scoring": "neg_mean_squared_error",
+        "features": "idade, valor_ticket, sexo_female",
+        "feature_selection_time": "00:00:00.000",
+        "search_time": "00:02:29.000",
+        "validation_time": "00:42:47.000"
+    }
+]

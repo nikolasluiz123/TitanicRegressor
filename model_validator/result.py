@@ -1,18 +1,24 @@
 from abc import ABC, abstractmethod
 from typing import Any
 
-import pandas as pd
-from tabulate import tabulate
-
 
 class ValidationResult(ABC):
 
     @abstractmethod
     def append_data(self, pipeline_infos: dict[str, Any]) -> dict[str, Any]:
-        ...
+        """
+        Função para adicionar os dados de validação em um dicionário que já contem algumas informações.
+
+        :param pipeline_infos: Dicionário que contém as informações do pipeline que está sendo executado.
+
+        :return: Um novo dicionário com as informações adicionadas.
+        """
 
 
-class CrossValidationResult(ValidationResult):
+class ScikitLearnCrossValidationResult(ValidationResult):
+    """
+    Implementação específica para armazenar os dados da validação cruzada do ScikitLearn.
+    """
 
     def __init__(self,
                  mean: float,
@@ -37,6 +43,7 @@ class CrossValidationResult(ValidationResult):
             :param min_max_score: O score máximo e mínimo ajudam a identificar a melhor e a pior performance entre os
             folds.
             :param estimator Estimador com os melhores parâmetros e que foi testado.
+            :param scoring Métrica avalida.
         """
 
         self.mean = mean
@@ -49,6 +56,7 @@ class CrossValidationResult(ValidationResult):
         self.scoring = scoring
 
     def append_data(self, pipeline_infos: dict[str, Any]) -> dict[str, Any]:
+        pipeline_infos['scoring'] = self.scoring
         pipeline_infos['mean'] = self.mean
         pipeline_infos['standard_deviation'] = self.standard_deviation
         pipeline_infos['median'] = self.median
@@ -61,6 +69,9 @@ class CrossValidationResult(ValidationResult):
 
 
 class XGBoostCrossValidationResult(ValidationResult):
+    """
+    Implementação específica para armazenar os dados da validação cruzada do XGBoost.
+    """
 
     def __init__(self,
                  train_means: list[tuple[str, float]],

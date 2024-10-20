@@ -3,7 +3,7 @@ import os
 import pickle
 from abc import ABC, abstractmethod
 
-from model_validator.result import CrossValidationResult, ValidationResult, XGBoostCrossValidationResult
+from model_validator.result import ScikitLearnCrossValidationResult, ValidationResult, XGBoostCrossValidationResult
 
 
 class HistoryManager(ABC):
@@ -18,9 +18,11 @@ class HistoryManager(ABC):
 
     def __init__(self, output_directory: str, models_directory: str, params_file_name: str):
         """
-        :param output_directory: Diretório que armazenará todos os dados de histórico
-        :param models_directory: Diretório específico para os modelos treinados
-        :param params_file_name: Nome do arquivo JSON que salvará os valores dos parâmetros que geraram o melhor modelo
+        :param output_directory: Diretório que armazenará todos os dados de histórico.
+
+        :param models_directory: Diretório específico para os modelos treinados.
+
+        :param params_file_name: Nome do arquivo JSON que salvará os valores dos parâmetros que geraram o melhor modelo.
         """
         self.output_directory = output_directory
         self.models_directory = os.path.join(self.output_directory, models_directory)
@@ -37,9 +39,17 @@ class HistoryManager(ABC):
         """
         Função responsável por salvar todos os dados relevantes para o histórico.
 
-        :param classifier_result: Resultado da validação
-        :param search_time: Tempo que levou a execução da busca por parâmetros
+        :param classifier_result: Resultado da validação.
+
+        :param feature_selection_time: Tempo que levou a seleção das melhores features.
+
+        :param search_time: Tempo que levou a execução da busca por parâmetros.
+
         :param validation_time: Tempo que levou a execução da validação
+
+        :param scoring: Métrica utilizada para definição do melhor modelo.
+
+        :param features: Features selecionadas.
         """
 
     def _create_output_dir(self):
@@ -86,14 +96,14 @@ class HistoryManager(ABC):
             return len(data) > 0
 
     @abstractmethod
-    def load_result_from_history(self, index: int = -1) -> ValidationResult:
+    def load_validation_result_from_history(self, index: int = -1) -> ValidationResult:
         """
-        Função para recuperar um registro da lista do JSON de histórico
+        Função para obter um objeto ValidationResult com os dados obtidos do JSON.
 
         :param index: Índice da lista que deseja retornar
         """
 
-    def _get_dictionary_from_json(self, index):
+    def get_dictionary_from_json(self, index):
         """
         Retorna um dicionário a partir do JSON do histórico
 
@@ -156,21 +166,21 @@ class HistoryManager(ABC):
 
 class CrossValidationHistoryManager(HistoryManager):
     """
-    Classe para manipular o histórico quando é utilizada a estratégia de validação cruzada, que gera N valores e podem
-    ser calculadas diversas métricas e obter resultados confiáveis.
+    Classe para manipular o histórico quando é utilizada a estratégia de validação cruzada.
     """
 
     def __init__(self, output_directory: str, models_directory: str, params_file_name: str):
         super().__init__(output_directory, models_directory, params_file_name)
 
     def save_result(self,
-                    classifier_result: CrossValidationResult,
+                    classifier_result: ScikitLearnCrossValidationResult,
                     feature_selection_time: str,
                     search_time: str,
                     validation_time: str,
                     scoring: str,
                     features: list[str]):
         dictionary = {
+            'estimator': type(classifier_result.estimator).__name__,
             'mean': classifier_result.mean,
             'standard_deviation': classifier_result.standard_deviation,
             'median': classifier_result.median,
@@ -189,10 +199,10 @@ class CrossValidationHistoryManager(HistoryManager):
         self._save_dictionary_in_json(dictionary)
         self._save_model(classifier_result.estimator)
 
-    def load_result_from_history(self, index: int = -1) -> CrossValidationResult:
-        result_dict = self._get_dictionary_from_json(index)
+    def load_validation_result_from_history(self, index: int = -1) -> ScikitLearnCrossValidationResult:
+        result_dict = self.get_dictionary_from_json(index)
 
-        return CrossValidationResult(
+        return ScikitLearnCrossValidationResult(
             mean=result_dict['mean'],
             standard_deviation=result_dict['standard_deviation'],
             median=result_dict['median'],
@@ -204,6 +214,10 @@ class CrossValidationHistoryManager(HistoryManager):
         )
 
 class XGBoostValidationHistoryManager(HistoryManager):
+    """
+    Classe para manipular o histórico das execuções utilizando a biblioteca XGBoost que possui campos específicos usados
+    para julgar se o modelo é bom ou não.
+    """
 
     def __init__(self, output_directory: str, models_directory: str, params_file_name: str):
         super().__init__(output_directory, models_directory, params_file_name)
@@ -216,6 +230,7 @@ class XGBoostValidationHistoryManager(HistoryManager):
                     scoring: str,
                     features: list[str]):
         dictionary = {
+            'estimator': type(classifier_result.estimator).__name__,
             'train_means': classifier_result.train_means,
             'train_standard_errors': classifier_result.train_standard_errors,
             'test_means': classifier_result.test_means,
@@ -233,8 +248,8 @@ class XGBoostValidationHistoryManager(HistoryManager):
         self._save_dictionary_in_json(dictionary)
         self._save_model(classifier_result.estimator)
 
-    def load_result_from_history(self, index: int = -1) -> XGBoostCrossValidationResult:
-        result_dict = self._get_dictionary_from_json(index)
+    def load_validation_result_from_history(self, index: int = -1) -> XGBoostCrossValidationResult:
+        result_dict = self.get_dictionary_from_json(index)
 
         return XGBoostCrossValidationResult(
             train_means=result_dict['train_means'],

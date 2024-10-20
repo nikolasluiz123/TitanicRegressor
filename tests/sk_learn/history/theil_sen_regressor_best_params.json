@@ -1,0 +1,58 @@
+[
+    {
+        "estimator": "TheilSenRegressor",
+        "mean": -0.18396576026819883,
+        "standard_deviation": 0.04563799745014069,
+        "median": -0.18630065413250635,
+        "variance": 0.002082826811259048,
+        "standard_error": 0.014432001979140135,
+        "min_max_score": [
+            -0.2555,
+            -0.1181
+        ],
+        "estimator_params": {
+            "copy_X": true,
+            "fit_intercept": true,
+            "max_iter": 973,
+            "max_subpopulation": 10000.0,
+            "n_jobs": null,
+            "n_subsamples": null,
+            "random_state": null,
+            "tol": 0.001,
+            "verbose": false
+        },
+        "scoring": "neg_mean_squared_error",
+        "features": "idade, valor_ticket, sexo_female",
+        "feature_selection_time": "00:00:00.000",
+        "search_time": "00:00:03.000",
+        "validation_time": "00:00:52.000"
+    },
+    {
+        "estimator": "TheilSenRegressor",
+        "mean": -0.1801724398520101,
+        "standard_deviation": 0.040034413746656464,
+        "median": -0.1713486552006161,
+        "variance": 0.001602754284038476,
+        "standard_error": 0.01265999322289896,
+        "min_max_score": [
+            -0.2664,
+            -0.1117
+        ],
+        "estimator_params": {
+            "copy_X": true,
+            "fit_intercept": true,
+            "max_iter": 1676,
+            "max_subpopulation": 10000.0,
+            "n_jobs": null,
+            "n_subsamples": null,
+            "random_state": null,
+            "tol": 0.001,
+            "verbose": false
+        },
+        "scoring": "neg_mean_squared_error",
+        "features": "idade, valor_ticket, sexo_female",
+        "feature_selection_time": "00:00:00.000",
+        "search_time": "00:05:18.000",
+        "validation_time": "01:27:10.000"
+    }
+]

@@ -4,47 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cff482e-a2fb-450d-9eac-36ee01549166" name="Changes" comment="feat: xgboost regressor">
-      <change afterPath="$PROJECT_DIR$/manager/sk_learn_multi_process_manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manager/xg_boost_multi_process_manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/sk_learn/estimators_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/xg_boost/estimators_test.py" afterDir="false" />
+    <list default="true" id="3cff482e-a2fb-450d-9eac-36ee01549166" name="Changes" comment="feat: multi teste de estimadores">
+      <change afterPath="$PROJECT_DIR$/manager/multi_process_manager_pipelines.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hiper_params_search/random_searcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/hiper_params_search/random_searcher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hiper_params_search/searcher.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager/process_manager.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager/history_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/manager/history_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager/sk_learn_multi_process_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/manager/multi_process_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager/xg_boost_multi_process_manager.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/model_validator/cross_validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_validator/cross_validator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model_validator/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_validator/result.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_validator/validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_validator/validator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/regression_vars_search/features_searcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/regression_vars_search/features_searcher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/regression_vars_search/k_best_feature_searcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/regression_vars_search/k_best_feature_searcher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/regression_vars_search/recursive_feature_searcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/regression_vars_search/recursive_feature_searcher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/decision_tree_regressor/decision_tree_regressor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/decision_tree_regressor/history/models_rfe_cv/model_1.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/decision_tree_regressor/history/tested_params_rfe_cv.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/elastic_net/elastic_net.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/elastic_net/history/models_rfe_cv/model_1.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/elastic_net/history/tested_params_rfe_cv.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/gradient_boosting_regressor/gradient_boosting_regressor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/gradient_boosting_regressor/history/models_rfe_cv/model_1.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/gradient_boosting_regressor/history/models_rfe_cv/model_2.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/gradient_boosting_regressor/history/tested_params_rfe_cv.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/random_forest_regressor/history/models_rfe_cv/model_1.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/random_forest_regressor/history/models_rfe_cv/model_2.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/random_forest_regressor/history/tested_params_rfe_cv.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/random_forest_regressor/random_forest_regressor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/sgd_regressor/history/models_rfe_cv/model_1.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/sgd_regressor/history/tested_params_rfe_cv.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/sgd_regressor/sgd_regressor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/theil_sen_regressor/history/models_select_k_best/model_1.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/theil_sen_regressor/history/tested_params_select_k_best.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/theil_sen_regressor/theil_sen_regressor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/xg_boost_regressor/history/models_rfe_cv/model_1.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/xg_boost_regressor/history/models_rfe_cv/model_2.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/xg_boost_regressor/history/models_rfe_cv/model_3.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/xg_boost_regressor/history/models_rfe_cv/model_4.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/xg_boost_regressor/history/models_rfe_cv/model_5.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/xg_boost_regressor/history/tested_params_rfe_cv.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/xg_boost_regressor/xg_boost.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/sk_learn/estimators_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/sk_learn/sk_learn_estimators_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/xg_boost/estimators_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/xg_boost/xgboost_estimators_test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,15 +68,18 @@
     "Python.decision_tree_regressor_test_random_search.executor": "Run",
     "Python.elastic_net.executor": "Run",
     "Python.estimators_test (1).executor": "Run",
+    "Python.estimators_test (2).executor": "Run",
     "Python.estimators_test.executor": "Run",
     "Python.gradient_boosting_regressor.executor": "Run",
     "Python.k_neighbors_regressor.executor": "Run",
     "Python.main.executor": "Run",
     "Python.random_forest_regressor.executor": "Run",
     "Python.sgd_regressor.executor": "Run",
+    "Python.sk_learn_estimators_test (1).executor": "Run",
     "Python.theil_sen_regressor.executor": "Run",
     "Python.tweedie_regressor.executor": "Run",
     "Python.xg_boost.executor": "Run",
+    "Python.xgboost_estimators_test (1).executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
@@ -127,8 +102,8 @@
       <recent name="C:\Users\nikol\git\IA\TitanicRegressor\tests\linear" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.estimators_test (1)">
-    <configuration name="estimators_test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.sk_learn_estimators_test (1)">
+    <configuration name="sk_learn_estimators_test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TitanicRegressor" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -137,11 +112,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/xg_boost" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/sk_learn" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/xg_boost/estimators_test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/sk_learn/sk_learn_estimators_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -150,7 +125,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="estimators_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="sk_learn_estimators_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TitanicRegressor" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -159,77 +134,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/multiple_tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/sk_learn" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\nikol\git\IA\TitanicRegressor\tests\sk_learn\estimators_test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="estimators_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="TitanicRegressor" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\nikol\git\IA\TitanicRegressor\tests\estimators_test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="sgd_regressor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="TitanicRegressor" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/sgd_regressor" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/sgd_regressor/sgd_regressor.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="theil_sen_regressor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="TitanicRegressor" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/theil_sen_regressor" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/theil_sen_regressor/theil_sen_regressor.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\nikol\git\IA\TitanicRegressor\tests\sk_learn\sk_learn_estimators_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -260,13 +169,57 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="xgboost_estimators_test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TitanicRegressor" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/xg_boost" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/xg_boost/xgboost_estimators_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="xgboost_estimators_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TitanicRegressor" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/xg_boost" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\nikol\git\IA\TitanicRegressor\tests\xg_boost\xgboost_estimators_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.estimators_test (1)" />
-        <item itemvalue="Python.sk_learn_estimators_test" />
+        <item itemvalue="Python.sk_learn_estimators_test (1)" />
+        <item itemvalue="Python.xgboost_estimators_test (1)" />
+        <item itemvalue="Python.xgboost_estimators_test" />
         <item itemvalue="Python.sk_learn_estimators_test" />
         <item itemvalue="Python.xg_boost" />
-        <item itemvalue="Python.theil_sen_regressor" />
       </list>
     </recent_temporary>
   </component>
@@ -318,13 +271,22 @@
       <option name="project" value="LOCAL" />
       <updated>1729293899231</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat: multi teste de estimadores">
+      <option name="closed" value="true" />
+      <created>1729379831212</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1729379831212</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: implementação com DecisionTreeRegressor" />
     <MESSAGE value="feat: teste de modelos de regressão variados" />
     <MESSAGE value="fix: novo teste com pequenos ajustes nos parâmetros por curiosidade" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: novo teste com pequenos ajustes nos parâmetros por curiosidade" />
+    <MESSAGE value="feat: multi teste de estimadores" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: multi teste de estimadores" />
   </component>
 </project>

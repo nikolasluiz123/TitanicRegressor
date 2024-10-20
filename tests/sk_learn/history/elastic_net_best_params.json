@@ -1,0 +1,62 @@
+[
+    {
+        "estimator": "ElasticNet",
+        "mean": -0.19696472474926435,
+        "standard_deviation": 0.02940029196525224,
+        "median": -0.19125847797643225,
+        "variance": 0.0008643771676420754,
+        "standard_error": 0.009297188648414506,
+        "min_max_score": [
+            -0.2655,
+            -0.1569
+        ],
+        "estimator_params": {
+            "alpha": 0.8910810102540406,
+            "copy_X": true,
+            "fit_intercept": true,
+            "l1_ratio": 0.12262776244954546,
+            "max_iter": 442,
+            "positive": false,
+            "precompute": false,
+            "random_state": null,
+            "selection": "cyclic",
+            "tol": 0.0001,
+            "warm_start": false
+        },
+        "scoring": "neg_mean_squared_error",
+        "features": "idade, valor_ticket, sexo_female",
+        "feature_selection_time": "00:00:00.000",
+        "search_time": "00:00:00.000",
+        "validation_time": "00:00:00.000"
+    },
+    {
+        "estimator": "ElasticNet",
+        "mean": -0.17549760727369118,
+        "standard_deviation": 0.015283454205267052,
+        "median": -0.17312811119428906,
+        "variance": 0.00023358397244449512,
+        "standard_error": 0.004833052580352246,
+        "min_max_score": [
+            -0.2039,
+            -0.1465
+        ],
+        "estimator_params": {
+            "alpha": 0.10339092509547976,
+            "copy_X": true,
+            "fit_intercept": true,
+            "l1_ratio": 0.121113119549039,
+            "max_iter": 1747,
+            "positive": false,
+            "precompute": false,
+            "random_state": null,
+            "selection": "cyclic",
+            "tol": 0.0001,
+            "warm_start": false
+        },
+        "scoring": "neg_mean_squared_error",
+        "features": "idade, valor_ticket, sexo_female",
+        "feature_selection_time": "00:00:00.000",
+        "search_time": "00:00:02.000",
+        "validation_time": "00:00:35.000"
+    }
+]

@@ -1,0 +1,73 @@
+[
+    {
+        "estimator": "GradientBoostingRegressor",
+        "mean": -0.16708020130603018,
+        "standard_deviation": 0.037400738235347133,
+        "median": -0.15412725978015535,
+        "variance": 0.0013988152205489572,
+        "standard_error": 0.011827151899544357,
+        "min_max_score": [
+            -0.2455,
+            -0.1259
+        ],
+        "estimator_params": {
+            "alpha": 0.9,
+            "ccp_alpha": 0.0,
+            "criterion": "squared_error",
+            "init": null,
+            "learning_rate": 0.3439378446097153,
+            "loss": "huber",
+            "max_depth": 4,
+            "max_features": null,
+            "max_leaf_nodes": null,
+            "min_impurity_decrease": 0.0,
+            "min_samples_leaf": 7,
+            "min_samples_split": 7,
+            "min_weight_fraction_leaf": 0.1962126340720595,
+            "n_estimators": 178,
+            "n_iter_no_change": null,
+            "random_state": null,
+            "subsample": 0.843458216093457,
+            "tol": 0.0001,
+            "validation_fraction": 0.1,
+            "verbose": 0,
+            "warm_start": false
+        },
+        "scoring": "neg_mean_squared_error",
+        "features": "idade,  valor_ticket,  sexo_female",
+        "feature_selection_time": "00:00:00.000",
+        "search_time": "00:00:01.000",
+        "validation_time": "00:00:28.000"
+    },
+    {
+        "estimator": "DecisionTreeRegressor",
+        "mean": -0.1474295787732977,
+        "standard_deviation": 0.021308982236992464,
+        "median": -0.14430708374873685,
+        "variance": 0.00045407272397646035,
+        "standard_error": 0.0067384918488966085,
+        "min_max_score": [
+            -0.1782,
+            -0.1123
+        ],
+        "estimator_params": {
+            "ccp_alpha": 0.0,
+            "criterion": "squared_error",
+            "max_depth": 5,
+            "max_features": null,
+            "max_leaf_nodes": null,
+            "min_impurity_decrease": 0.0,
+            "min_samples_leaf": 6,
+            "min_samples_split": 13,
+            "min_weight_fraction_leaf": 0.12283773516317749,
+            "monotonic_cst": null,
+            "random_state": null,
+            "splitter": "best"
+        },
+        "scoring": "neg_mean_squared_error",
+        "features": "classe_social,  idade,  qtd_irmaos_conjuges,  qtd_pais_filhos,  valor_ticket,  sexo_female,  cabine_A26,  cabine_B3,  cabine_B30,  cabine_B35,  cabine_B37,  cabine_B38,  cabine_B39,  cabine_B4,  cabine_B41,  cabine_B42,  cabine_B49,  cabine_B5,  cabine_B50,  cabine_B51 B53 B55,  cabine_B57 B59 B63 B66,  cabine_B58 B60,  cabine_B69,  cabine_B71,  cabine_B73,  cabine_B77,  cabine_B79,  cabine_B80,  cabine_B82 B84,  cabine_B86,  cabine_B94,  cabine_B96 B98,  cabine_C101,  cabine_C103,  cabine_C104,  cabine_C110,  cabine_C111,  cabine_C118,  cabine_C123,  cabine_C124,  cabine_C125,  cabine_C126,  cabine_C148,  cabine_C2,  cabine_C22 C26,  cabine_C23 C25 C27,  cabine_C30,  cabine_C32,  cabine_C45,  cabine_C46,  cabine_C49,  cabine_C50,  cabine_C52,  cabine_C54,  cabine_C62 C64,  cabine_C65,  cabine_C68,  cabine_C7,  cabine_C70,  cabine_C78,  cabine_C82,  cabine_C83,  cabine_C85,  cabine_C86,  cabine_C87,  cabine_C90,  cabine_C91,  cabine_C92,  cabine_C93,  cabine_C99,  cabine_D,  cabine_D10 D12,  cabine_D11,  cabine_D15,  cabine_D17,  cabine_D19,  cabine_D20,  cabine_D26,  cabine_D28,  cabine_D30,  cabine_D33,  cabine_D35,  cabine_D36,  cabine_D37,  cabine_D46,  cabine_D47,  cabine_D48,  cabine_D49,  cabine_D50,  cabine_D56,  cabine_D6,  cabine_D7,  cabine_D9,  cabine_E10,  cabine_E101,  cabine_E12,  cabine_E121,  cabine_E17,  cabine_E24,  cabine_E25,  cabine_E31,  cabine_E33,  cabine_E34,  cabine_E36,  cabine_E38,  cabine_E40,  cabine_E44,  cabine_E46,  cabine_E49,  cabine_E50,  cabine_E58,  cabine_E63,  cabine_E67,  cabine_E68,  cabine_E77,  cabine_E8,  cabine_F G63,  cabine_F G73,  cabine_F2,  cabine_F33,  cabine_F4,  cabine_G6,  cabine_T",
+        "feature_selection_time": "00:00:01.000",
+        "search_time": "00:00:04.000",
+        "validation_time": "00:00:46.000"
+    }
+]
